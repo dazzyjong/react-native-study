@@ -24,12 +24,28 @@ export default class App extends Component<Props> {
     let pic = {uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'};
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-        <Image source={pic} style={{width: 193, height: 110}}/>
-        <Greeting name='Rexxar' />
-        <Blink text='fuccccck!'/>
+        <View style={styles.container}>
+          <Text style={styles.welcome}>Welcome to React Native!</Text>
+          <Text style={styles.instructions}>To get started, edit App.js</Text>
+          <Text style={styles.instructions}>{instructions}</Text>
+          <Image source={pic} style={{width: 193, height: 110}}/>
+          <Greeting name='Rexxar' />
+          <Blink text='fuccccck!'/>
+        </View>
+        <View style={{flex: 1, flexDirection: 'row'}}>
+              <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+              <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+              <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+        </View>
+        <View style={{
+          flex: 1,
+          flexDirection: 'column', // row
+          justifyContent: 'space-evenly', // flex-start, center, flex-end, space-around, space-between and space-evenly
+        }}>
+          <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+          <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+          <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+        </View>
       </View>
     );
   }
@@ -44,12 +60,13 @@ const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: 20,
+    fontWeight: 'bold',
     textAlign: 'center',
     margin: 10,
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
+    color: 'red',
     marginBottom: 5,
   },
 });
