@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Image} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image, TextInput} from 'react-native';
 import {Greeting} from './Greeting.js'
 import {Blink} from './Blink.js'
 
@@ -20,6 +20,11 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+
+  constructor(props) {
+    super(props);
+    this.state = {text: ''};
+  }
   render() {
     let pic = {uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'};
     return (
@@ -31,12 +36,23 @@ export default class App extends Component<Props> {
           <Image source={pic} style={{width: 193, height: 110}}/>
           <Greeting name='Rexxar' />
           <Blink text='fuccccck!'/>
+
+          <TextInput
+            style={styles.instructions}
+            placeholder="type here"
+            onChangeText={(text) => this.setState({text})}
+          />
+
+          <Text style={styles.instructions}>
+            { this.state.text.split(' ').map( (word) => word && '🍕' ).join(' ')}
+          </Text>
+
         </View>
-        <View style={{flex: 1, flexDirection: 'row'}}>
+        {/* <View style={{flex: 1, flexDirection: 'row'}}>
               <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
               <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
               <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
-        </View>
+        </View> */}
         <View style={{
           flex: 1,
           flexDirection: 'column', // row
